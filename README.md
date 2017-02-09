@@ -1,12 +1,14 @@
 # Whale-Design landing-page application
 
-## Installation (development)
-1. ```npm install```
-2. ```npm run devserver```
-3. open http://localhost:8090
+####[Demo](http://beta-whale.maplemap.net/)
 
+### Installation (development)
+1. clone or download project
+2. ```npm install```
+3. ```npm run devserver```
+4. open http://localhost:8090
 
-## Installation (production)
-1. ```npm install```
-2. ```npm run prod-build```
-3. get data from ``` public ``` folder and upload for your server
+### Installation (test)
+1. clone or download project
+2. ```cd public/```
+3. run index.html

@@ -28,8 +28,13 @@ module.exports = {
       'react-dom',
       'react-tap-event-plugin',
       'redux',
-      'redux-thunk',
-      'react-redux'
+      'react-redux',
+      'react-masonry-component',
+      'react-nl2br',
+      'react-scroll',
+      'react-slick',
+      'react-waypoint',
+      'classnames'
     ]
   },
   output: {
@@ -69,9 +74,9 @@ module.exports = {
               : ['style-loader', 'css-loader', 'less-loader']
       },
       {
-        test: /\.(jpg|jpeg|gif|png)$/,
+        test: /\.(jpg|jpeg|gif|png|svg)$/,
         use: [
-          'file-loader?name=[name].[ext]',
+          'file-loader?name=images/[sha512:hash:base64:7].[ext]',
           {
             loader: 'img-loader',
             query: {
@@ -94,12 +99,12 @@ module.exports = {
             }
           }
         ],
-        exclude: [/node_modules/]
+        exclude: [/node_modules/, /src\/fonts/]
       },
       {
         test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-        use: 'file-loader?name=[name].[ext]',
-        exclude: [/node_modules/]
+        use: 'file-loader?name=fonts/[name].[ext]',
+        exclude: [/node_modules/, /src\/img/]
       },
       {
         test: /\.(js|jsx)$/,

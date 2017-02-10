@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './containers/App';
 
 import './styles/main.less';
-import App from './App.jsx';
 
 if (module.hot) {
-    module.hot.accept();
+  module.hot.accept();
 }
 
 ReactDOM.render(
-    <App />,
-    document.getElementById("main")
+  <App />,
+  document.getElementById('main')
 );

@@ -112,10 +112,11 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
+              plugins: ['transform-decorators-legacy'],
               presets: [
                 ['es2015', { modules: false }],
                 'react',
-                'stage-2'
+                'stage-0'
               ]
             }
           }

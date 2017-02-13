@@ -3,7 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CommonActions from '../actions/CommonActions';
 
-// import Header from './components/Header.jsx';
+import Example from '../components/Example';
+import Header from '../components/Header';
 // import Presentation from './components/Presentation/Presentation.jsx';
 // import Team from './components/Team/Team.jsx';
 // import WhatWeDo from './components/WhatWeDo.jsx';
@@ -77,35 +78,46 @@ class App extends React.Component {
     });
   }
 
+  receiveStateChange(watcher) {
+    console.log(watcher.watchItem.className);
+    console.log(watcher.top);
+    console.log(watcher.bottom);
+  }
+
 
   render() {
     console.log('AppProps', this.props);
     return (
-      <div className="App">
-        <div>wewewe</div>
-        {/* <Header
+      <div className="app-wrapper">
+        <Header
           colorScheme={this.state.colorScheme}
-          sloganName={this.state.sloganName}
+          sloganName={'sloganName'}
         />
-        <Presentation
+        <Example stateChange={this.receiveStateChange} className="section_1" />
+        <Example stateChange={this.receiveStateChange} className="section_2" />
+        <Example stateChange={this.receiveStateChange} className="section_3" />
+        <Example stateChange={this.receiveStateChange} className="section_4" />
+        <Example stateChange={this.receiveStateChange} className="section_5" />
+        <Example stateChange={this.receiveStateChange} className="section_6" />
+        {/* <Presentation
           onChangeSection={this.handlerChangeSection}
-        />
-        <Team
+        /> */}
+        {/* <Team
           onChangeSection={this.handlerChangeSection}
-        />
-        <WhatWeDo
+        /> */}
+        {/* <WhatWeDo
           onChangeSection={this.handlerChangeSection}
-        />
-        <Portfolio
+        /> */}
+        {/* <Portfolio
           projects={this.state.projects}
           categoryDescription={config.section.portfolio.description}
           onChangeSection={this.handlerChangeSection}
-        />
-        <Footer
+        /> */}
+        {/* <Footer
           onChangeSection={this.handlerChangeSection}
-        />
+        /> */}
 
-        <NavigationPopup
+        {/* <NavigationPopup
           handlerHideMenuNavigation={this.hideNavigationPopup}
           isNavigationPopupActive = {this.state.isNavigationPopupActive}
          /> */}

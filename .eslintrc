@@ -21,13 +21,7 @@ env:
 
 rules:
   indent: 2
-  func-style: 0
-  func-names: 0
   comma-dangle: 0
-  class-methods-use-this: 0
-  no-console: 0
-  global-require: 0
-  react/jsx-filename-extension: 0
-  react/prop-types: 0
+  react/jsx-filename-extension: ["error", { "extensions": [".js", ".jsx"] }]
   react/prefer-stateless-function: 0
-  react/jsx-no-bind: 0
+  react/prop-types: 0

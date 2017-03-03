@@ -78,7 +78,7 @@ class App extends React.Component {
     });
   }
 
-  receiveStateChange(watcher) {
+  receiveStateChange = (watcher) => {
     console.log(watcher.watchItem.className);
     console.log(watcher.top);
     console.log(watcher.bottom);

@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CommonActions from '../actions/CommonActions';
 
-import Example from '../components/Example';
 import Header from '../components/Header';
+import Example from '../components/Example';
 // import Presentation from './components/Presentation/Presentation.jsx';
 // import Team from './components/Team/Team.jsx';
 // import WhatWeDo from './components/WhatWeDo.jsx';
@@ -79,26 +79,23 @@ class App extends React.Component {
   }
 
   receiveStateChange = (watcher) => {
-    console.log(watcher.watchItem.className);
-    console.log(watcher.top);
-    console.log(watcher.bottom);
+    console.log(watcher.isFullyInViewport);
   }
 
 
   render() {
-    console.log('AppProps', this.props);
     return (
       <div className="app-wrapper">
         <Header
           colorScheme={this.state.colorScheme}
           sloganName={'sloganName'}
         />
-        <Example stateChange={this.receiveStateChange} className="section_1" />
-        <Example stateChange={this.receiveStateChange} className="section_2" />
-        <Example stateChange={this.receiveStateChange} className="section_3" />
-        <Example stateChange={this.receiveStateChange} className="section_4" />
-        <Example stateChange={this.receiveStateChange} className="section_5" />
-        <Example stateChange={this.receiveStateChange} className="section_6" />
+        <Example classNameclassName="section_1" />
+        <Example classNameclassName="section_2" />
+        <Example classNameclassName="section_3" />
+        <Example classNameclassName="section_4" />
+        <Example classNameclassName="section_5" />
+        <Example classNameclassName="section_6" />
         {/* <Presentation
           onChangeSection={this.handlerChangeSection}
         /> */}
@@ -127,8 +124,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
-
   return {
     state
   };

@@ -5,7 +5,7 @@ import CommonActions from '../actions/CommonActions';
 
 import Example from '../components/Example';
 import Header from '../components/Header';
-// import Presentation from './components/Presentation/Presentation.jsx';
+import Presentation from '../components/Presentation/Presentation';
 // import Team from './components/Team/Team.jsx';
 // import WhatWeDo from './components/WhatWeDo.jsx';
 // import Portfolio from './components/Portfolio/Portfolio.jsx';
@@ -78,30 +78,28 @@ class App extends React.Component {
     });
   }
 
-  receiveStateChange = (watcher) => {
+  handlePositionState = (watcher) => {
+    console.log(watcher.offsets);
     console.log(watcher.watchItem.className);
-    console.log(watcher.top);
-    console.log(watcher.bottom);
   }
 
 
   render() {
-    console.log('AppProps', this.props);
     return (
       <div className="app-wrapper">
-        <Header
-          colorScheme={this.state.colorScheme}
-          sloganName={'sloganName'}
-        />
-        <Example stateChange={this.receiveStateChange} className="section_1" />
-        <Example stateChange={this.receiveStateChange} className="section_2" />
-        <Example stateChange={this.receiveStateChange} className="section_3" />
-        <Example stateChange={this.receiveStateChange} className="section_4" />
-        <Example stateChange={this.receiveStateChange} className="section_5" />
-        <Example stateChange={this.receiveStateChange} className="section_6" />
-        {/* <Presentation
-          onChangeSection={this.handlerChangeSection}
-        /> */}
+          <Header
+              colorScheme={this.state.colorScheme}
+              sloganName={'sloganName'}
+          />
+          <Presentation
+              onChangeSection={this.handlerChangeSection}
+          />
+        <Example offsets={{ top: 10 }} fullyEnterViewport={this.handlePositionState} className="section_1" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_2" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_3" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_4" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_5" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_6" />
         {/* <Team
           onChangeSection={this.handlerChangeSection}
         /> */}
@@ -127,8 +125,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
-
   return {
     state
   };

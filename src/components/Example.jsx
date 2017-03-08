@@ -1,7 +1,6 @@
 import React from 'react';
-import { Watch as scrollmonitorWatch } from 'scrollmonitor-react';
+import { Watch } from 'scrollmonitor-react';
 
-@scrollmonitorWatch
 class MyComponent extends React.Component {
   render() {
     const style = {
@@ -25,4 +24,4 @@ class MyComponent extends React.Component {
   }
 }
 
-export default MyComponent;
+export default Watch(MyComponent);

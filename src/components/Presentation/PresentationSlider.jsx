@@ -1,61 +1,53 @@
-import React from "react";
+import React from 'react';
 import Slider from 'react-slick';
 
-import Slide_1 from './PresentationSlide_1.jsx';
-import Slide_2 from './PresentationSlide_2.jsx';
-import Slide_3 from './PresentationSlide_3.jsx';
-import Slide_4 from './PresentationSlide_4.jsx';
+import Slide1 from './PresentationSlide_1';
+import Slide2 from './PresentationSlide_2';
+import Slide3 from './PresentationSlide_3';
+import Slide4 from './PresentationSlide_4';
 
-class PresentationSlider extends React.Component {
-    render() {
-        const slideComponents = [
-            <Slide_1 />,
-            <Slide_2 />,
-            <Slide_3 />,
-            <Slide_4 />
-        ];
+import getUniqueID from '../../utils/getUniqueID';
 
-        const slides =  slideComponents.map((slide, index) =>
-            <div key={index}>
-                {slide}
-            </div>
-        );
+const PresentationSlider = () => {
+  const slideComponents = [
+    <Slide1 />,
+    <Slide2 />,
+    <Slide3 />,
+    <Slide4 />
+  ];
 
-        const sliderSettings = {
-            infinite: true,
-            arrows: true,
-            dots: false,
-            prevArrow: <CustomPrevArrow />,
-            nextArrow: <CustomNextArrow />,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 4000
-        };
+  const slides = slideComponents.map(slide =>
+    <div key={getUniqueID()}>
+      {slide}
+    </div>
+  );
 
-        return(
-            <Slider {...sliderSettings}>
-                {slides}
-            </Slider>
-        )
-    }
-}
+  const sliderSettings = {
+    infinite: true,
+    arrows: true,
+    dots: false,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 4000
+  };
 
-class CustomPrevArrow extends React.Component{
-    render() {
-        return (
-            <button type="button" className="slick-prev" {...this.props} />
-        )
-    }
-}
+  return (
+    <Slider {...sliderSettings}>
+      {slides}
+    </Slider>
+  );
+};
 
-class CustomNextArrow extends React.Component{
-    render() {
-        return (
-            <button type="button" className="slick-next" {...this.props} />
-        )
-    }
-}
+const CustomPrevArrow = props => (
+  <button type="button" className="slick-prev" {...props} />
+);
+
+const CustomNextArrow = props => (
+  <button type="button" className="slick-next" {...props} />
+);
 
 export default PresentationSlider;

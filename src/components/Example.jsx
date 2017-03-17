@@ -1,7 +1,7 @@
 import React from 'react';
 import { Watch } from 'scrollmonitor-react';
 
-class MyComponent extends React.Component {
+class Example extends React.Component {
   render() {
     const style = {
       height: '1200px',
@@ -9,17 +9,10 @@ class MyComponent extends React.Component {
       border: '1px solid'
     };
 
-  return (
-    <div style={style}>no sad</div>
-  );
-};
-
     return (
-      <div style={style} className={this.props.className}>
-        {text}
-      </div>
+      <div className={this.props.className} style={style}>no sad</div>
     );
   }
 }
 
-export default Watch(MyComponent);
+export default Watch(Example);

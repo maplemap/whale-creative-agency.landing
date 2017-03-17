@@ -5,6 +5,7 @@ import CommonActions from '../actions/CommonActions';
 
 import Header from '../components/Header';
 import Presentation from '../components/Presentation/Presentation';
+import Example from '../components/Example';
 // import Team from './components/Team/Team.jsx';
 // import WhatWeDo from './components/WhatWeDo.jsx';
 // import Portfolio from './components/Portfolio/Portfolio.jsx';
@@ -77,8 +78,8 @@ class App extends React.Component {
     });
   }
 
-  receiveStateChange = (watcher) => {
-    console.log(watcher.isFullyInViewport);
+  handlePositionState = (watcher) => {
+    console.log(watcher.watchItem.className);
   }
 
 
@@ -86,11 +87,11 @@ class App extends React.Component {
     return (
       <div className="app-wrapper">
         <Header
-            colorScheme={this.state.colorScheme}
-            sloganName={'sloganName'}
+          colorScheme={this.state.colorScheme}
+          sloganName={'sloganName'}
         />
         <Presentation
-            onChangeSection={this.handlerChangeSection}
+          onChangeSection={this.handlerChangeSection}
         />
         <Example offsets={{ top: 10 }} fullyEnterViewport={this.handlePositionState} className="section_1" />
         <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_2" />

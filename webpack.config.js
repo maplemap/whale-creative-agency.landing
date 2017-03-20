@@ -127,22 +127,22 @@ module.exports = {
   },
 
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: false,
     inline: false,
     contentBase: path.join(__dirname, '/public'),
     port: NODE_PORT,
     hot: true,
     stats: {
-      assets: true,
+      assets: false,
       children: false,
       chunks: false,
       hash: false,
       modules: false,
       publicPath: false,
-      progress: true,
-      timings: true,
+      progress: false,
+      timings: false,
       version: false,
-      warnings: true,
+      warnings: false,
     }
   },
 

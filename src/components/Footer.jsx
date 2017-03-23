@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import GuidLines from './GuidLines.jsx';
 import Waypoint from 'react-waypoint';
 import {Link} from 'react-scroll';

@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import CommonActions from '../actions/CommonActions';
 
-import Example from '../components/Example';
 import Header from '../components/Header';
 import Presentation from '../components/Presentation/Presentation';
 // import Team from './components/Team/Team.jsx';
@@ -78,22 +77,21 @@ class App extends React.Component {
     });
   }
 
-  handlePositionState = (watcher) => {
-    console.log(watcher.offsets);
-    console.log(watcher.watchItem.className);
+  receiveStateChange = (watcher) => {
+    console.log(watcher.isFullyInViewport);
   }
 
 
   render() {
     return (
       <div className="app-wrapper">
-          <Header
-              colorScheme={this.state.colorScheme}
-              sloganName={'sloganName'}
-          />
-          <Presentation
-              onChangeSection={this.handlerChangeSection}
-          />
+        <Header
+            colorScheme={this.state.colorScheme}
+            sloganName={'sloganName'}
+        />
+        <Presentation
+            onChangeSection={this.handlerChangeSection}
+        />
         <Example offsets={{ top: 10 }} fullyEnterViewport={this.handlePositionState} className="section_1" />
         <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_2" />
         <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_3" />
@@ -101,24 +99,24 @@ class App extends React.Component {
         <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_5" />
         <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_6" />
         {/* <Team
-          onChangeSection={this.handlerChangeSection}
+            onChangeSection={this.handlerChangeSection}
         /> */}
         {/* <WhatWeDo
-          onChangeSection={this.handlerChangeSection}
+            onChangeSection={this.handlerChangeSection}
         /> */}
         {/* <Portfolio
-          projects={this.state.projects}
-          categoryDescription={config.section.portfolio.description}
-          onChangeSection={this.handlerChangeSection}
+            projects={this.state.projects}
+            categoryDescription={config.section.portfolio.description}
+            onChangeSection={this.handlerChangeSection}
         /> */}
         {/* <Footer
-          onChangeSection={this.handlerChangeSection}
+            onChangeSection={this.handlerChangeSection}
         /> */}
 
         {/* <NavigationPopup
-          handlerHideMenuNavigation={this.hideNavigationPopup}
-          isNavigationPopupActive = {this.state.isNavigationPopupActive}
-         /> */}
+            handlerHideMenuNavigation={this.hideNavigationPopup}
+            isNavigationPopupActive = {this.state.isNavigationPopupActive}
+        /> */}
       </div>
     );
   }

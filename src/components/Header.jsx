@@ -7,16 +7,18 @@ const nl2br = require('react-nl2br');
 class Header extends React.Component {
   render() {
     const modifier = (this.props.colorScheme === 'white') ? '--white' : '';
+    const style = (this.props.currentSection === 'section-2' || this.props.currentSection === 'section-4') ? { color: 'red' } : { color: 'black' };
 
     return (
       <header className="header">
         <div className="header__body">
-          <h1>
+          {/* <h1>
             <a href="/" className={`logo logo--header ${(modifier) ? `logo ${modifier}` : ''}`}>
-              {/* Whale<span className="logo__star">*</span> <br /> Creative <br /> Agency */}
+               Whale<span className="logo__star">*</span> <br /> Creative <br /> Agency
             </a>
-          </h1>
+          </h1> */}
           <div
+            style={style}
             className={`section-slogan ${(modifier) ? `section-slogan ${modifier}` : ''}`}
           >
             { nl2br(this.props.sloganName) }

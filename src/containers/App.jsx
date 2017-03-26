@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CommonActions from '../actions/CommonActions';
 
 import Header from '../components/Header';
-import Presentation from '../components/Presentation/Presentation';
+// import Presentation from '../components/Presentation/Presentation';
 import Example from '../components/Example';
 // import Team from './components/Team/Team.jsx';
 // import WhatWeDo from './components/WhatWeDo.jsx';
@@ -78,8 +78,8 @@ class App extends React.Component {
     });
   }
 
-  handlePositionState = (watcher) => {
-    console.log(watcher.watchItem.className);
+  handleFullyEnterViewport = (watcher) => {
+    this.props.actions.setCurrentSection(watcher.watchItem.className);
   }
 
 
@@ -89,16 +89,17 @@ class App extends React.Component {
         <Header
           colorScheme={this.state.colorScheme}
           sloganName={'sloganName'}
+          currentSection={this.props.page.currentSection}
         />
-        <Presentation
+        {/* <Presentation
           onChangeSection={this.handlerChangeSection}
-        />
-        <Example offsets={{ top: 10 }} fullyEnterViewport={this.handlePositionState} className="section_1" />
-        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_2" />
-        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_3" />
-        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_4" />
-        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_5" />
-        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section_6" />
+        />*/}
+        <Example offsets={{ top: 10, bottom: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-1" />
+        <Example offsets={{ top: 85, bottom: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-2" />
+        <Example offsets={{ top: 85, bottom: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-3" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-4" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-5" />
+        <Example offsets={{ top: 85 }} fullyEnterViewport={this.handlePositionState} className="section-6" />
         {/* <Team
             onChangeSection={this.handlerChangeSection}
         /> */}
@@ -124,8 +125,10 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
+  const { page } = state;
+
   return {
-    state
+    page
   };
 }
 

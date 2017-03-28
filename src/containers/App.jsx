@@ -92,7 +92,7 @@ class App extends React.Component {
           currentSection={this.props.page.currentSection}
         />
         {/* <Presentation
-          onChangeSection={this.handlerChangeSection}
+            onChangeSection={this.handlerChangeSection}
         />*/}
         <Example offsets={{ top: 10, bottom: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-1" />
         <Example offsets={{ top: 85, bottom: 85 }} fullyEnterViewport={this.handleFullyEnterViewport} className="section-2" />

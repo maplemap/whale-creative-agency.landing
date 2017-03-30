@@ -1,90 +1,93 @@
-import React from "react";
+import React from 'react';
 import Slider from 'react-slick';
 
-import Slide_1 from './TeamSlide_1.jsx';
-import Slide_2 from './TeamSlide_2.jsx';
-import Slide_3 from './TeamSlide_3.jsx';
-import Slide_4 from './TeamSlide_4.jsx';
+import Slide1 from './TeamSlide_1';
+import Slide2 from './TeamSlide_2';
+import Slide3 from './TeamSlide_3';
+import Slide4 from './TeamSlide_4';
+
+import getUniqueID from '../../helpers/getUniqueID';
 
 class TeamSlider extends React.Component {
+  constructor(props) {
+    super(props);
 
-    state = {
-        numPrevBtn: 4,
-        numNextBtn: 2
+    this.state = {
+      numPrevBtn: 4,
+      numNextBtn: 2
+    };
+  }
+
+  calcPrevNextNumberSlide = (amount, currentIndex) => {
+    const newCurrentIndex = currentIndex + 1;
+
+    const numPrevBtn = (newCurrentIndex > 1) ? newCurrentIndex - 1 : amount;
+    const numNextBtn = (newCurrentIndex < amount) ? newCurrentIndex + 1 : 1;
+
+    this.setState({
+      numPrevBtn,
+      numNextBtn
+    });
+  }
+
+  render() {
+    const slideComponents = [
+      <Slide1 />,
+      <Slide2 />,
+      <Slide3 />,
+      <Slide4 />
+    ];
+
+    // const slides = slideComponents.map(slide =>
+    //   <div key={getUniqueID()}>
+    //     {slide}
+    //   </div>
+    // );
+
+    const sliderSettings = {
+      infinite: true,
+      arrows: true,
+      dots: false,
+      prevArrow: <CustomPrevArrow numPrevBtn={this.state.numPrevBtn} />,
+      nextArrow: <CustomNextArrow numNextBtn={this.state.numNextBtn} />,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 4000,
+      afterChange: () => this.calcPrevNextNumberSlide(slideComponents.length)
     };
 
-    render() {
-        const  slideComponents = [
-            <Slide_1 />,
-            <Slide_2 />,
-            <Slide_3 />,
-            <Slide_4 />
-        ];
-
-        const slides =  slideComponents.map((slide, index) =>
-            <div key={index}>
-                {slide}
+    return (
+      <Slider {...sliderSettings}>
+        { // TODO: Check this
+          slideComponents.map(slide =>
+            <div key={getUniqueID()}>
+              {slide}
             </div>
-        );
-
-        const sliderSettings = {
-            infinite: true,
-            arrows: true,
-            dots: false,
-            prevArrow: <CustomPrevArrow numPrevBtn={this.state.numPrevBtn} />,
-            nextArrow: <CustomNextArrow numNextBtn={this.state.numNextBtn} />,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 4000,
-            afterChange: this._calcPrevNextNumberSlide.bind(null, slideComponents.length)
-        };
-
-        return(
-            <Slider {...sliderSettings}>
-                {slides}
-            </Slider>
-        )
-    }
-
-    _calcPrevNextNumberSlide = (amount ,currentIndx) => {
-        currentIndx += 1;
-
-        const numPrevBtn = (currentIndx > 1) ? currentIndx - 1 : amount;
-        const numNextBtn = (currentIndx < amount) ? currentIndx + 1 : 1;
-
-        this.setState({
-            numPrevBtn: numPrevBtn,
-            numNextBtn: numNextBtn
-        });
-    }
+          )
+        }
+      </Slider>
+    );
+  }
 }
 
-class CustomPrevArrow extends React.Component{
-    render() {
-        return (
-            <button
-                type="button"
-                className="slick-prev"
-                data-page-num={this.props.numPrevBtn}
-                {...this.props}
-            />
-        )
-    }
-}
+const CustomPrevArrow = props => (
+  <button
+    type="button"
+    className="slick-prev"
+    data-page-num={props.numPrevBtn}
+    {...this.props}
+  />
+);
 
-class CustomNextArrow extends React.Component{
-    render() {
-        return (
-            <button
-                type="button"
-                className="slick-next"
-                data-page-num={this.props.numNextBtn}
-                {...this.props}
-            />
-        )
-    }
-}
+const CustomNextArrow = props => (
+  <button
+    type="button"
+    className="slick-next"
+    data-page-num={props.numNextBtn}
+    {...this.props}
+  />
+);
 
 export default TeamSlider;

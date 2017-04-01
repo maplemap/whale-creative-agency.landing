@@ -6,7 +6,7 @@ import Slide2 from './PresentationSlide_2';
 import Slide3 from './PresentationSlide_3';
 import Slide4 from './PresentationSlide_4';
 
-import getUniqueID from '../../utils/getUniqueID';
+import getUniqueID from '../../helpers/getUniqueID';
 
 const PresentationSlider = () => {
   const slideComponents = [

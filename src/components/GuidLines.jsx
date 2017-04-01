@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import getUniqueID from '../utils/getUniqueID';
+import getUniqueID from '../helpers/getUniqueID';
 
 import './GuidLines.less';
 

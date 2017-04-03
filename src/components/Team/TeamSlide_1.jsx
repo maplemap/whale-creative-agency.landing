@@ -1,25 +1,22 @@
-import React from "react";
+import React from 'react';
 
-class Slide_1 extends React.Component {
+const Slide1 = () => (
+  <div className="team__slide team__slide--1">
+    <div className="team__body">
+      <article className="description description--team" data-num="1">
+        <h2 className="description__title">About us</h2>
+        <hr className="description__stroke" />
+        <p className="description__text">
+          We are a small family of passionate and creative people. Located in Cherkasy Ukraine.
+          Our goal is to drive your business growth by keeping design affordable
+           yet still beautiful and exclusive.
+          We offer a full stack of design services: brand identity, logo design,
+           mobile app and website design,
+          marketing materials for print and even music production.
+        </p>
+      </article>
+    </div>
+  </div>
+);
 
-    render() {
-        return(
-            <div className="team__slide team__slide--1">
-                <div className="team__body">
-                    <article className="description description--team" data-num="1">
-                        <h2 className="description__title">About us</h2>
-                        <hr className="description__stroke" />
-                        <p className="description__text">
-                            We are a small family of passionate and creative people. Located in Cherkasy Ukraine.
-                            Our goal is to drive your business growth by keeping design affordable yet still beautiful and exclusive.
-                            We offer a full stack of design services: brand identity, logo design, mobile app and website design,
-                            marketing materials for print and even music production.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        )
-    }
-}
-
-export default Slide_1;
+export default Slide1;

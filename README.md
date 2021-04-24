@@ -1,6 +1,6 @@
 # Whale-Design landing-page application
 
-[Demo link](https://maplemap.github.io/whale-creative-agency-page/)
+[Live Demo](https://maplemap.github.io/whale-creative-agency-page/)
 
 ### Installation (development)
 1. clone or download project
